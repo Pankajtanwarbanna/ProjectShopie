@@ -5,18 +5,17 @@ var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 var secret = 'ProjectShopie';
 var nodemailer = require('nodemailer');
-var sgTransport = require('nodemailer-sendgrid-transport');
 
 module.exports = function (router){
 
-    // Nodemailer-sandgrid stuff
-    var options = {
+    // Nodemailer stuff
+    var client = nodemailer.createTransport({
+        service : 'gmail',
         auth: {
-            api_key: 'YOUR_API_KEY'
+            user: 'EMAIL',
+            pass: 'PASS'
         }
-    };
-
-    var client = nodemailer.createTransport(sgTransport(options));
+    });
 
     // User register API
     router.post('/register',function (req, res) {
