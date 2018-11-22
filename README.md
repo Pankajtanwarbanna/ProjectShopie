@@ -1,4 +1,4 @@
-# Polymath
+# ProjectShopie
 An online platform for students to sell their project, research papers etc.
 
 ## Built with :
