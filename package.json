@@ -1,0 +1,32 @@
+{
+  "name": "ProjectShopie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pankajtanwarbanna/ProjectShopie.git"
+  },
+  "author": "Pankaj tanwar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pankajtanwarbanna/ProjectShopie/issues"
+  },
+  "homepage": "https://github.com/Pankajtanwarbanna/ProjectShopie#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.1",
+    "mongoose-title-case": "0.0.4",
+    "mongoose-validator": "^2.1.0",
+    "morgan": "^1.9.1",
+    "nodemailer": "^4.6.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^1.18.4"
+  }
+}
