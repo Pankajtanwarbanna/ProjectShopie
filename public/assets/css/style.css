@@ -1,0 +1,119 @@
+* {
+    font-family: Raleway, sans-serif;
+}
+.navbar-inverse {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: white !important;
+}
+
+a {
+    font-weight: bold;
+    color: white !important;
+}
+
+
+.multi-steps > li.is-active:before, .multi-steps > li.is-active ~ li:before {
+    content: counter(stepNum);
+    font-family: inherit;
+    font-weight: 700;
+}
+.multi-steps > li.is-active:after, .multi-steps > li.is-active ~ li:after {
+    background-color: #ededed;
+}
+
+.multi-steps {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.multi-steps > li {
+    counter-increment: stepNum;
+    text-align: center;
+    display: table-cell;
+    position: relative;
+    color: green;
+}
+.multi-steps > li:before {
+    content: '\2713';
+    display: block;
+    margin: 0 auto 4px;
+    background-color: #fff;
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    border-color: green;
+    border-radius: 50%;
+}
+.multi-steps > li:after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: green;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    z-index: -1;
+}
+.multi-steps > li:last-child:after {
+    display: none;
+}
+.multi-steps > li.is-active:before {
+    background-color: #fff;
+    border-color: green;
+}
+.multi-steps > li.is-active ~ li {
+    color: #808080;
+}
+.multi-steps > li.is-active ~ li:before {
+    background-color: #ededed;
+    border-color: #ededed;
+}
+
+.form-control {
+    height: 55px;
+    font-size: 15px;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+.previous {
+    margin-right: 5px;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 8em;
+    padding-right: 8em;
+}
+.continue {
+    margin-left: 5px;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 8em;
+    padding-right: 8em;
+}
+.explore {
+    margin-top: 5px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+.summary-box {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-left: 30px;
+    padding-top: 20px;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
+}
+p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.edit-section {
+    margin-bottom: 20px;
+}

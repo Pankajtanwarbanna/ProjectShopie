@@ -9,16 +9,16 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/logo/logo.png"/>
 
 
-    <title>ProjectShopie : Sell your projects online!</title>
-
-    <!-- Style sheets -->
-    <link rel="stylesheet" href="assets/css/style.css"/>
+    <title>ProjectShopie : Buy and Sell your side projects online!</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="assets/css/style.css"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
@@ -37,22 +37,18 @@
     <script src="app/services/userServices.js"></script>
     <script src="app/services/authServices.js"></script>
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Font library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- Font library-->
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
 
 </head>
 
 <body ng-app="userApp" ng-controller="mainCtrl as main">
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row cb-slideshow-text-container">
             <div class="tm-content">
 
-                <nav class="navbar navbar-inverse">
+                <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #3e474f;border-radius: 0px;">
                     <div class="container">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -64,24 +60,48 @@
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/services" class="prata-font" ng-show="!main.isLoggedIn"> SERVICES </a></li>
-                                <li><a href="/about" class="prata-font" ng-show="!main.isLoggedIn"> ABOUT </a></li>
-                                <li><a href="/contact" class="prata-font" ng-show="!main.isLoggedIn"> CONTACT US </a></li>
-                                <li><a href="/management" class="prata-font" ng-show="main.isLoggedIn && main.authorized">MANAGEMENT </a></li>
-                                <li><a href="/register" class="prata-font" ng-show="!main.isLoggedIn"> JOIN US </a></li>
-                                <li><a href="#" class="prata-font" ng-show="main.isLoggedIn" ng-click="main.logout();"> LOGOUT </a></li>
-                                <li><a href="/users/{{main.username}}" class="prata-font" ng-show="main.isLoggedIn"> HELLO {{main.name }}</a></li>
+                                <li><a href="/contact" ng-show="!main.isLoggedIn"> Contact Us </a></li>
+                                <li><a href="/sell-project" ng-show="main.isLoggedIn"> Sell Your Project </a></li>
+                                <li><a href="/management" ng-show="main.isLoggedIn && main.authorized"> Management </a></li>
+                                <li><a href="/register" ng-show="!main.isLoggedIn"> Join Us </a></li>
+                                <li><a href="/users/{{main.username}}" ng-show="main.isLoggedIn"> Hello {{main.name }}</a></li>
+                                <li><a href="#" ng-show="main.isLoggedIn" ng-click="main.logout();"> Logout </a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
 
+                <div class="container" ng-show="main.home">
+                    <div class="row">
+                        <div class="col-sm-6" style="margin-top: 12em">
+                            <h1 style="font-size: 5rem;">Profitable side projects for sale</h1>
+                            <h4 style="padding-top: 1em" class="text-muted">
+                                <b>ProjectSophie</b> is a curated marketplace where profitable side projects founders
+                                can sell their product to our community of trusted buyers.
+                            </h4>
+                        </div>
+                        <div class="col-sm-6" style="margin-top: 15em">
+                            <img src="assets/images/winning.svg" style="width: 100%;"/>
+                            <br>
+                            <svg width="10px" height="10px"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <text x="10" y="50" font-size="30">My SVG</text>
+                            </svg>
+                            <br>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary explore"> Explore</button>
+                </div>
+
                 <!-- Angular view -->
-                <div class="ng-view"></div>
+                <div class="container" style="margin-top: 7em;" ng-show="!main.home">
+                    <div class="ng-view"></div>
+                </div>
 
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

@@ -71,5 +71,10 @@ angular.module('userServices',[])
         return $http.put('/api/edit/', id);
     };
 
+    // Submit project
+    userFactory.submitProject = function (projectData) {
+        return $http.post('/api/submitProject', projectData);
+    };
+
     return userFactory;
 });

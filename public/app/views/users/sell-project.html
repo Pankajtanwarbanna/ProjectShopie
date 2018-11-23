@@ -1,0 +1,216 @@
+
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2" style="border : 2px solid lightyellow;border-radius: 1em;margin-bottom: 10em;">
+
+        <div class="container-fluid">
+            <br>
+            <br>
+            <ul class="list-unstyled multi-steps">
+                <li ng-class="sellProject.active">Start</li>
+                <li ng-class="sellProject.active2">Project Details</li>
+                <li ng-class="sellProject.active3">Offer Details</li>
+                <li ng-class="sellProject.active4">Summary</li>
+            </ul>
+            <br>
+            <div class="start" ng-show="sellProject.step==1">
+
+                <div class="text-center">
+                    <br>
+                    <h1>
+                        About you
+                    </h1>
+                    <h4 class="text-muted">First, we need to know a little bit about you!</h4>
+                </div>
+                <br>
+                <form ng-submit="sellProject.start();">
+                    <label class="text-muted"><b>Your Name :</b></label>
+                    <input class="form-control" type="text" placeholder="Your Name" ng-model="sellProject.name" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Your Email :</b></label>
+                    <input class="form-control" type="email" placeholder="Your Email" ng-model="sellProject.email" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Your Contact :</b></label>
+                    <input class="form-control" type="text" placeholder="Your Contact No." ng-model="sellProject.contact" required>
+
+                    <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: white;border-color: transparent;">
+                        <div class="container-fluid text-center">
+                            <button type="submit" class="btn btn-primary continue"> Continue</button>
+                        </div>
+                    </nav>
+                </form>
+
+
+
+            </div>
+
+            <div class="project-details" ng-show="sellProject.step==2">
+                <div class="text-center">
+                    <br>
+                    <h1>
+                        Project Details
+                    </h1>
+                    <h4 class="text-muted">Let us know a brief about your project!</h4>
+                </div>
+                <br>
+                <form ng-submit="sellProject.details();">
+                    <label class="text-muted"><b>Project Name :</b></label>
+                    <input class="form-control" type="text" placeholder="Project Name" ng-model="sellProject.projectname" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Project Short Description :</b></label>
+                    <input class="form-control" type="text" placeholder="Project One line description" ng-model="sellProject.projectline" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Demo URL :</b></label>
+                    <input class="form-control" type="url" placeholder="Project Demo URL" ng-model="sellProject.demourl" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Github URL :</b></label>
+                    <input class="form-control" type="url" placeholder="Project Github URL" ng-model="sellProject.githuburl" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Project Technology :</b></label>
+                    <input class="form-control" type="text" placeholder="Technology Used" ng-model="sellProject.technology" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b> Project Details :</b></label>
+                    <textarea rows="5" class="form-control" type="text" placeholder="Project full description" ng-model="sellProject.description" required></textarea>
+                    <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: white;border-color: transparent;">
+                        <div class="container-fluid text-center">
+                            <button type="button" class="btn btn-default previous" ng-click="sellProject.detailsback();"> Previous </button>
+                            <button type="submit" class="btn btn-primary continue"> Continue </button>
+                        </div>
+                    </nav>
+                </form>
+            </div>
+
+            <div class="project-stack" ng-show="sellProject.step==3">
+
+                <div class="text-center">
+                    <br>
+                    <h1>
+                        Offer Details
+                    </h1>
+                    <h4 class="text-muted">Almost there! Let us know your expectations.</h4>
+                </div>
+                <br>
+                <form ng-submit="sellProject.price();">
+                    <label class="text-muted"><b>Project Subscribers :</b></label>
+                    <input class="form-control" type="number" placeholder="Project Subscribers" ng-model="sellProject.subscriber" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Project Revenue :</b></label>
+                    <input class="form-control" type="number" placeholder="Project Current Revenue per month" ng-model="sellProject.revenue" required>
+                    <br>
+                    <br>
+                    <label class="text-muted"><b>Asking Price :</b></label>
+                    <input class="form-control" type="number" placeholder="Project asking price" ng-model="sellProject.projectprice" required>
+                    <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: white;border-color: transparent;">
+                        <div class="container-fluid text-center">
+                            <button type="button" class="btn btn-default previous"  ng-click="sellProject.priceback();"> Previous </button>
+                            <button type="submit" class="btn btn-primary continue">
+                                Continue
+                            </button>
+                        </div>
+                    </nav>
+                </form>
+
+            </div>
+
+            <div class="summary" ng-show="sellProject.step==4">
+
+                <div class="text-center">
+                    <br>
+                    <h1>
+                        Summary
+                    </h1>
+                    <h4 class="text-muted">Hey Pankaj, Review your project before posting!</h4>
+                </div>
+                <br>
+                <div class="summary-box">
+                    <h3 style="margin-bottom: 30px;">General Informations</h3>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><b>Title </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.projectname }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><b>Demo URL </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.demourl }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><b>Github URL </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.githuburl }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><b>Project Technology </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.technology }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><b>Project Description </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.description }}</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-link edit-section" ng-click="sellProject.start();">Edit this Section</button>
+                </div>
+
+
+
+                <div class="summary-box">
+                    <h3 style="margin-bottom: 30px;">Offer Details</h3>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><b>Subscribers </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.subscriber }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><b>Revenue </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.revenue }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><b>Asked Price </b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>{{ sellProject.projectprice }}</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-link edit-section" ng-click="sellProject.details();">Edit this Section</button>
+                </div>
+
+                <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: white;border-color: transparent;">
+                    <div class="container-fluid text-center">
+                        <button type="submit" class="btn btn-primary continue" ng-click="sellProject.submitProject();">
+                            Submit my project
+                        </button>
+                    </div>
+                </nav>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

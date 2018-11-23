@@ -2,6 +2,7 @@
     API written by - Pankaj Tanwar
 */
 var User = require('../models/user');
+var Project = require('../models/project');
 var jwt = require('jsonwebtoken');
 var secret = 'ProjectShopie';
 var nodemailer = require('nodemailer');
@@ -920,6 +921,49 @@ module.exports = function (router){
                 }
             }
         });
+    });
+
+    // submit project
+    router.post('/submitProject', function (req,res) {
+        console.log(req.body);
+        if(!req.body) {
+            res.json({
+                success : false,
+                message : 'Entries are missing'
+            });
+        } else {
+            var project = new Project();
+
+            project.postedbyname = req.body.name;
+            project.postedbyusername = req.decoded.username;
+            project.email = req.body.email;
+            project.contact = req.body.contact;
+            project.projectname = req.body.projectname;
+            project.demourl = req.body.demourl;
+            project.githuburl = req.body.githuburl;
+            project.technology = req.body.technology;
+            project.description = req.body.description;
+            project.projectline = req.body.projectline;
+            project.subscriber = req.body.subscriber;
+            project.revenue = req.body.revenue;
+            project.projectprice = req.body.projectprice;
+
+            project.save(function (err) {
+                if(err) {
+                    console.log(err);
+                    res.json({
+                        success : false,
+                        message : 'Error while posting project.'
+                    });
+                } else {
+                    res.json({
+                        success: true,
+                        message : 'Project successfully posted.'
+                    })
+                }
+            })
+
+        }
     });
 
     return router;

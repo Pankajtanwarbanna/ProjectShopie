@@ -22,11 +22,6 @@ var app = angular.module('userRoutes', ['ngRoute'])
                 authenticated : true
             })
 
-            .when('/about', {
-                templateUrl : '/app/views/pages/about.html',
-                authenticated : false
-            })
-
             .when('/contact', {
                 templateUrl : '/app/views/pages/contact.html',
                 authenticated : false
@@ -79,6 +74,18 @@ var app = angular.module('userRoutes', ['ngRoute'])
                 controller : 'editCtrl',
                 controllerAs : 'edit',
                 permission : 'admin'
+            })
+
+            .when('/sell-project', {
+                templateUrl : 'app/views/users/sell-project.html',
+                authenticated : true,
+                controller : 'sellProjectCtrl',
+                controllerAs : 'sellProject'
+            })
+
+            .when('/projectposted' , {
+                templateUrl : 'app/views/users/projectposted.html',
+                authenticated : true
             })
 
 
