@@ -966,6 +966,69 @@ module.exports = function (router){
         }
     });
 
+    // router to get all projects
+    router.get('/getProjects', function (req, res) {
+        if(!req.decoded.username) {
+            res.json({
+                success : false,
+                message : 'User not found.'
+            });
+        } else {
+            // postedbyusername : req.decoded.username
+            Project.find({   }, function (err, projects) {
+                if(err) {
+                    res.json({
+                        success : false,
+                        message : 'Error while fetching data from database.'
+                    });
+                } else if (!projects) {
+                    res.json({
+                        success : false,
+                        message : 'Projects not projects'
+                    });
+                } else {
+                    res.json({
+                        success : true,
+                        projects : projects
+                    })
+                }
+            });
+
+        }
+    });
+
+    // route to get project details
+    router.get('/getProjectInfo/:id', function (req, res) {
+        //console.log(req.params.id);
+        if(!req.decoded.username) {
+            res.json({
+                success : false,
+                message : 'User not found.'
+            });
+        } else {
+
+            Project.findOne({ _id : req.params.id }, function (err, project) {
+                if(err) {
+                    res.json({
+                        success : false,
+                        message : 'Error while fetching data from database.'
+                    });
+                } else if (!project) {
+                    res.json({
+                        success : false,
+                        message : 'Projects not projects'
+                    });
+                } else {
+                    res.json({
+                        success : true,
+                        project : project
+                    })
+                }
+            })
+
+        }
+    })
+
     return router;
 };
 

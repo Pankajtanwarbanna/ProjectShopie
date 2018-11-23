@@ -9,10 +9,9 @@
 .navbar-inverse .navbar-toggle {
     border-color: white !important;
 }
-
-a {
-    font-weight: bold;
-    color: white !important;
+a:hover, a:focus {
+    text-underline: none !important;
+    text-decoration: none;
 }
 
 
@@ -102,6 +101,8 @@ a {
     padding-bottom: 1em;
     padding-left: 4em;
     padding-right: 4em;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .summary-box {
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -117,3 +118,39 @@ p {
 .edit-section {
     margin-bottom: 20px;
 }
+.dot {
+    height: 7px;
+    width: 7px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+.explorediv {
+    margin-top: 5px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.line {
+    display: block;
+}
+@media screen and (min-width: 480px) {
+
+}
+/*
+ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    border-top: 1px solid #E1E4F0;
+    color: #8D92A3;
+    padding: 15px 25px 5px;
+    min-height : 50px;
+    box-shadow : 0 -4px 50px #fff;
+}
+ul li{
+    display: inline;
+    margin: 10px;
+}
+*/

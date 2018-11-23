@@ -76,5 +76,15 @@ angular.module('userServices',[])
         return $http.post('/api/submitProject', projectData);
     };
 
+    // get all successfully posted projects
+    userFactory.getProjects = function () {
+        return $http.get('/api/getProjects');
+    };
+
+    // get project info
+    userFactory.getProjectInfo = function (id) {
+        return $http.get('/api/getProjectInfo/'+ id);
+    };
+
     return userFactory;
 });

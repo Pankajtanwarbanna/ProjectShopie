@@ -113,4 +113,44 @@ angular.module('userCtrl',['userServices'])
 
 
     }
+})
+
+.controller('exploreCtrl', function (user) {
+    //console.log('explore project');
+
+    var app = this;
+
+    user.getProjects().then(function (data) {
+        console.log(data);
+        if(data.data.success) {
+            app.projects = data.data.projects;
+        }
+    });
+})
+
+.controller('projectCtrl', function (user, $routeParams) {
+   console.log($routeParams.id);
+
+   var app = this;
+
+   user.getProjectInfo($routeParams.id).then(function (data) {
+       console.log(data);
+       if(data.data.success) {
+           app.projectname = data.data.project.projectname;
+           app.description = data.data.project.description;
+           app.demourl = data.data.project.demourl;
+           app.githuburl = data.data.project.githuburl;
+           app.contact = data.data.project.contact;
+           app.email = data.data.project.email;
+           app.postedbyname = data.data.project.postedbyname;
+           app.postedbyusername = data.data.project.postedbyusername;
+           app.projectprice= data.data.project.projectprice;
+           app.revenue = data.data.project.revenue;
+           app.subscriber = data.data.project.subscriber;
+           app.sold = data.data.project.sold;
+           app.technology = data.data.project.technology;
+           app.boughtby = data.data.project.boughtby;
+
+       }
+   });
 });

@@ -88,6 +88,19 @@ var app = angular.module('userRoutes', ['ngRoute'])
                 authenticated : true
             })
 
+            .when('/explore' , {
+                templateUrl : 'app/views/users/explore.html',
+                authenticated : true,
+                controller : 'exploreCtrl',
+                controllerAs : 'explore'
+            })
+
+            .when('/project/:id', {
+                templateUrl : 'app/views/users/project.html',
+                authenticated : true,
+                controller : 'projectCtrl',
+                controllerAs : 'project'
+            })
 
             .otherwise( { redirectTo : '/'});
 

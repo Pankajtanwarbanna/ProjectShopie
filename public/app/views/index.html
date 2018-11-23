@@ -56,16 +56,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand prata-font" href="/">ProjectShopie</a>
+                            <a class="navbar-brand" href="/" style="color: white !important;font-weight:bold;">ProjectShopie</a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/contact" ng-show="!main.isLoggedIn"> Contact Us </a></li>
-                                <li><a href="/sell-project" ng-show="main.isLoggedIn"> Sell Your Project </a></li>
-                                <li><a href="/management" ng-show="main.isLoggedIn && main.authorized"> Management </a></li>
-                                <li><a href="/register" ng-show="!main.isLoggedIn"> Join Us </a></li>
-                                <li><a href="/users/{{main.username}}" ng-show="main.isLoggedIn"> Hello {{main.name }}</a></li>
-                                <li><a href="#" ng-show="main.isLoggedIn" ng-click="main.logout();"> Logout </a></li>
+                                <li><a href="/contact" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Contact Us </a></li>
+                                <li><a href="/sell-project" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Sell Your Project </a></li>
+                                <li><a href="/management" ng-show="main.isLoggedIn && main.authorized" style="color: white !important;font-weight:bold;"> Management </a></li>
+                                <li><a href="/register" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Join Us </a></li>
+                                <li><a href="/users/{{main.username}}" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Hello {{main.name }}</a></li>
+                                <li><a href="#" ng-show="main.isLoggedIn" ng-click="main.logout();" style="color: white !important;font-weight:bold;"> Logout </a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,7 +90,9 @@
                             <br>
                         </div>
                     </div>
-                    <button class="btn btn-primary explore"> Explore</button>
+                    <a href="/explore">
+                        <button class="btn btn-primary explore"> Explore</button>
+                    </a>
                 </div>
 
                 <!-- Angular view -->

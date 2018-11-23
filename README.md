@@ -27,7 +27,7 @@ https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/
 ### Run Software
 
 1. git clone https://github.com/Pankajtanwarbanna/ProjectShopie.git
-2. cd Polymath
+2. cd ProjectShopie
 3. npm install
 4. nodemon server.js
 

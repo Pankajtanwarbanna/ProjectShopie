@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="text-center">
+        <h1>
+            Project {{ project.projectname }}
+        </h1>
+    </div>
+    <br>
+
+    <div class="summary" style="margin-bottom: 10em;">
+        <div class="summary-box">
+            <h3 style="margin-bottom: 30px;">General Informations</h3>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p><b>Project Name </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p>{{ project.projectname }}</p>
+                </div>
+                <div class="col-sm-4">
+                    <p><b>Demo URL </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <a href="{{ project.demourl }}" target="_blank"><p>{{ project.demourl }}</p></a>
+                </div>
+                <div class="col-sm-4">
+                    <p><b>Github URL </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <a href="{{ project.githuburl }}" target="_blank"><p>{{ project.githuburl }}</p></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p><b>Project Technology </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p>{{ project.technology }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p><b>Project Description </b></p>
+                </div>
+                <div class="col-sm-8" style="overflow-x: auto">
+                    <p>{{ project.description }}</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="summary-box">
+            <h3 style="margin-bottom: 30px;">Offer Details</h3>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p><b>Subscribers </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p>{{ project.subscriber }}</p>
+                </div>
+                <div class="col-sm-4">
+                    <p><b>Revenue </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p>  ₹ {{ project.revenue }}</p>
+                </div>
+                <div class="col-sm-4">
+                    <p><b>Asked Price </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p> ₹  {{ project.projectprice }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3 style="margin-bottom: 30px;">Owner Details</h3>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p><b>Owner Name </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p>{{ project.postedbyname }}</p>
+                </div>
+                <div class="col-sm-4">
+                    <p><b>Owner Email </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p> {{ project.email }}</p>
+                </div>
+                <div class="col-sm-4">
+                    <p><b>Owner Contact No. </b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p> +91  {{ project.contact }}</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: white;border-color: transparent;">
+            <div class="container-fluid text-center">
+                <button type="submit" class="btn btn-primary continue" ng-click="sellProject.submitProject();">
+                    Buy Now!
+                </button>
+            </div>
+        </nav>
+
+
+    </div>
+</div>

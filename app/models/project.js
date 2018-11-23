@@ -54,13 +54,21 @@ var projectSchema = new mongoose.Schema({
     projectprice : {
         type : Number,
         required : true,
+    },
+    sold : {
+        type : Boolean,
+        default : false
+    },
+    boughtby : {
+        type : String,
+        default : 'None'
     }
 });
 
 
 // Mongoose title case plugin
 projectSchema.plugin(titlize, {
-    paths: [ 'projectname','name'], // Array of paths
+    paths: [ 'projectname','postedbyname'] // Array of paths
 });
 
 
