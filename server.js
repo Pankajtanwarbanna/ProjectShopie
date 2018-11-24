@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 // diff. front end and backend routes
 app.use('/api', apiRoutes);
-
 // connecting to mongo database
 mongoose.connect('mongodb://localhost:27017/ProjectShopie', { useNewUrlParser: true }, function (err) {
     if(err) {

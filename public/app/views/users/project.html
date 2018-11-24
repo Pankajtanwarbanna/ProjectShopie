@@ -101,12 +101,51 @@
 
         <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: white;border-color: transparent;">
             <div class="container-fluid text-center">
-                <button type="submit" class="btn btn-primary continue" ng-click="sellProject.submitProject();">
+                <button type="submit" class="btn btn-primary continue" data-toggle="modal" data-target="#myModal">
                     Contact Owner now!
                 </button>
             </div>
         </nav>
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Contact Project Owner</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p><b>Owner Name </b></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>{{ project.postedbyname }}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p><b>Owner Email </b></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p> {{ project.email }}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p><b>Owner Contact No. </b></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p> +91  {{ project.contact }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </div>
 </div>

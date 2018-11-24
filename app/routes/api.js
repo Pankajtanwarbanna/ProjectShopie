@@ -13,8 +13,8 @@ module.exports = function (router){
     var client = nodemailer.createTransport({
         service : 'gmail',
         auth: {
-            user: 'EMAIL',
-            pass: 'PASS'
+            user: 'projectshopie@gmail.com',
+            pass: 'Pankaj@18#'
         }
     });
 
@@ -90,11 +90,11 @@ module.exports = function (router){
                 } else {
 
                     var email = {
-                        from: 'Polymath Registration, support@polymath.com',
+                        from: 'ProjectShopie Registration, support@ProjectShopie.com',
                         to: user.email,
-                        subject: 'Activation Link - Polymath Registration',
-                        text: 'Hello '+ user.name + 'Thank you for registering with us.Please find the below activation link Activation link Thank you Pankaj Tanwar CEO, Polymath',
-                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>Thank you for registering with us.Please find the below activation link<br><br><a href="http://localhost:8080/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>CEO, Polymath'
+                        subject: 'Activation Link - ProjectShopie Registration',
+                        text: 'Hello '+ user.name + 'Thank you for registering with us.Please find the below activation link Activation link Thank you Pankaj Tanwar Developer, ProjectShopie',
+                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>Thank you for registering with us.Please find the below activation link<br><br><a href="http://localhost:8080/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                     };
 
                     client.sendMail(email, function(err, info){
@@ -207,11 +207,11 @@ module.exports = function (router){
                             } else {
 
                                 var email = {
-                                    from: 'Polymath Registration, support@polymath.com',
+                                    from: 'ProjectShopie Registration, support@ProjectShopie.com',
                                     to: user.email,
                                     subject: 'Activation activated',
-                                    text: 'Hello ' + user.name + 'Your account has been activated.Thank you Pankaj Tanwar CEO, Polymath',
-                                    html: 'Hello <strong>' + user.name + '</strong>,<br><br> Your account has been activated.<br><br>Thank you<br>Pankaj Tanwar<br>CEO, Polymath'
+                                    text: 'Hello ' + user.name + 'Your account has been activated.Thank you Pankaj Tanwar Developer, ProjectShopie',
+                                    html: 'Hello <strong>' + user.name + '</strong>,<br><br> Your account has been activated.<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                                 };
 
                                 client.sendMail(email, function (err, info) {
@@ -298,11 +298,11 @@ module.exports = function (router){
                 } else {
 
                     var email = {
-                        from: 'Polymath Registration, support@polymath.com',
+                        from: 'ProjectShopie Registration, support@ProjectShopie.com',
                         to: user.email,
-                        subject: 'Activation Link request - Polymath Registration',
-                        text: 'Hello '+ user.name + 'You requested for the new activation link.Please find the below activation link Activation link Thank you Pankaj Tanwar CEO, Polymath',
-                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the new activation link.Please find the below activation link<br><br><a href="http://localhost:8080/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>CEO, Polymath'
+                        subject: 'Activation Link request - ProjectShopie Registration',
+                        text: 'Hello '+ user.name + 'You requested for the new activation link.Please find the below activation link Activation link Thank you Pankaj Tanwar Developer, ProjectShopie',
+                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the new activation link.Please find the below activation link<br><br><a href="http://localhost:8080/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                     };
 
                     client.sendMail(email, function(err, info){
@@ -346,11 +346,11 @@ module.exports = function (router){
                 } else if(user) {
 
                     var email = {
-                        from: 'Polymath, support@polymath.com',
+                        from: 'ProjectShopie, support@ProjectShopie.com',
                         to: user.email,
                         subject: 'Forgot Username Request',
-                        text: 'Hello '+ user.name + 'You requested for your username.You username is ' + user.username + 'Thank you Pankaj Tanwar CEO, Polymath',
-                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for your username.You username is <strong>'+ user.username + '</strong><br><br>Thank you<br>Pankaj Tanwar<br>CEO, Polymath'
+                        text: 'Hello '+ user.name + 'You requested for your username.You username is ' + user.username + 'Thank you Pankaj Tanwar Developer, ProjectShopie',
+                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for your username.You username is <strong>'+ user.username + '</strong><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                     };
 
                     client.sendMail(email, function(err, info){
@@ -413,11 +413,11 @@ module.exports = function (router){
                         } else {
 
                             var email = {
-                                from: 'Polymath Registration, support@polymath.com',
+                                from: 'ProjectShopie Registration, support@ProjectShopie.com',
                                 to: user.email,
                                 subject: 'Forgot Password Request',
-                                text: 'Hello '+ user.name + 'You request for the forgot password.Please find the below link Reset password Thank you Pankaj Tanwar CEO, Polymath',
-                                html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the forgot password. Please find the below link<br><br><a href="http://localhost:8080/forgotPassword/'+ user.temporarytoken+'">Reset password</a><br><br>Thank you<br>Pankaj Tanwar<br>CEO, Polymath'
+                                text: 'Hello '+ user.name + 'You request for the forgot password.Please find the below link Reset password Thank you Pankaj Tanwar Developer, ProjectShopie',
+                                html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the forgot password. Please find the below link<br><br><a href="http://localhost:8080/forgotPassword/'+ user.temporarytoken+'">Reset password</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                             };
 
                             client.sendMail(email, function(err, info){
@@ -508,11 +508,11 @@ module.exports = function (router){
                         } else {
 
                             var email = {
-                                from: 'Polymath, support@polymath.com',
+                                from: 'ProjectShopie, support@ProjectShopie.com',
                                 to: user.email,
                                 subject: 'Password reset',
-                                text: 'Hello '+ user.name + 'You request for the reset password.Your password has been reset. Thank you Pankaj Tanwar CEO, Polymath',
-                                html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the reset password. Your password has been reset.<br><br>Thank you<br>Pankaj Tanwar<br>CEO, Polymath'
+                                text: 'Hello '+ user.name + 'You request for the reset password.Your password has been reset. Thank you Pankaj Tanwar Developer, ProjectShopie',
+                                html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the reset password. Your password has been reset.<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                             };
 
                             client.sendMail(email, function(err, info){

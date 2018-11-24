@@ -134,7 +134,7 @@ angular.module('userCtrl',['userServices'])
    var app = this;
 
    user.getProjectInfo($routeParams.id).then(function (data) {
-       console.log(data);
+       //console.log(data);
        if(data.data.success) {
            app.projectname = data.data.project.projectname;
            app.description = data.data.project.description;

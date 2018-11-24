@@ -5,31 +5,33 @@
     </h1>
 </div>
 
-<div class="row" style="margin-top: 4em;">
-    <div class="col-md-4 explorediv" ng-repeat="project in explore.projects">
+<div class="row" style="margin-top: 4em;margin-bottom: 4em;">
+    <div class="container-overview">
 
+        <div class="col-sm-4 box" ng-repeat="project in explore.projects" style="margin-top: 10px;margin-bottom: 1em;">
 
-        <h5 style="color: green;"><span class="dot"></span> &nbsp;Still On sale<b style="float: right;" class="text-muted">2 Weeks ago</b></h5>
-        <a href="/project/{{ project._id }}" style="color: black !important;" class="topic"><h3> {{ project.projectname }}</h3></a>
-        <p class="text-muted"> {{ project.projectline}}.</p>
+            <h5 style="color: green;"><span class="dot"></span> &nbsp;Still On sale<b style="float: right;" class="text-muted">2 Weeks ago</b></h5>
+            <a href="/project/{{ project._id }}" style="color: black !important;" class="topic"><h3> {{ project.projectname }}</h3></a>
+            <p class="text-muted"> {{ project.projectline}}.</p>
 
-        <div style="float: left;border-top: 1px solid #E1E4F0;list-style: none;width: 100%;">
-            <ul>
-                <li style="width: 33.33%;display: inline-block;float: left;text-align: left;margin-left: -30px;padding-top: 10px;">
-                    <span class="line">Subscriber</span>
-                    <span class="line">  {{ project.subscriber }}</span>
-                </li>
-                <li style="width: 33.33%;display: inline-block;float: left;text-align: left;margin-left: 15px;padding-top: 10px;">
-                    <span class="line">Revenue</span>
-                    <span class="line"> ₹ {{ project.revenue }}</span>
-                </li>
-                <li style="width: 33.33%;display: inline-block;float: left;text-align: left;margin-left: 15px;padding-top: 10px;">
-                    <span class="line">Price</span>
-                    <span class="line" style="color: green;"> ₹ {{ project.projectprice }}</span>
-                </li>
-            </ul>
+            <div style="float: left;border-top: 1px solid #E1E4F0;list-style: none;width: 100%;">
+                <ul>
+                    <li style="width: 33.33%;display: inline-block;float: left;text-align: left;margin-left: -30px;padding-top: 10px;">
+                        <span class="line">Subscriber</span>
+                        <span class="line">  {{ project.subscriber }}</span>
+                    </li>
+                    <li style="width: 33.33%;display: inline-block;float: left;text-align: left;margin-left: 15px;padding-top: 10px;">
+                        <span class="line">Revenue</span>
+                        <span class="line"> ₹ {{ project.revenue }}</span>
+                    </li>
+                    <li style="width: 33.33%;display: inline-block;float: left;text-align: left;margin-left: 15px;padding-top: 10px;">
+                        <span class="line">Price</span>
+                        <span class="line" style="color: green;"> ₹ {{ project.projectprice }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-
     </div>
+
 
 </div>

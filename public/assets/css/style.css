@@ -125,12 +125,18 @@ p {
     border-radius: 50%;
     display: inline-block;
 }
-.explorediv {
-    margin-top: 5px;
-    padding-top: 1em;
-    padding-bottom: 1em;
+.box:hover {
+    top : -10px;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.box {
+    position: relative;
+    top: 0;
+    margin-top: 5px;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    transition: top ease 0.5s;
 }
 .line {
     display: block;
