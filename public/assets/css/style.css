@@ -135,6 +135,9 @@ p {
 .line {
     display: block;
 }
+.bottom-footer {
+    margin-bottom: 12em;
+}
 @media screen and (min-width: 480px) {
 
 }
