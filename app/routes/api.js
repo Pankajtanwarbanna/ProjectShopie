@@ -13,8 +13,8 @@ module.exports = function (router){
     var client = nodemailer.createTransport({
         service : 'gmail',
         auth: {
-            user: 'projectshopie@gmail.com',
-            pass: 'Pankaj@18#'
+            user: 'EMAIL',
+            pass: 'PASSWORD'
         }
     });
 
@@ -94,7 +94,7 @@ module.exports = function (router){
                         to: user.email,
                         subject: 'Activation Link - ProjectShopie Registration',
                         text: 'Hello '+ user.name + 'Thank you for registering with us.Please find the below activation link Activation link Thank you Pankaj Tanwar Developer, ProjectShopie',
-                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>Thank you for registering with us.Please find the below activation link<br><br><a href="http://localhost:8080/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
+                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>Thank you for registering with us.Please find the below activation link<br><br><a href="https://projectshopie.herokuapp.com/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                     };
 
                     client.sendMail(email, function(err, info){
@@ -302,7 +302,7 @@ module.exports = function (router){
                         to: user.email,
                         subject: 'Activation Link request - ProjectShopie Registration',
                         text: 'Hello '+ user.name + 'You requested for the new activation link.Please find the below activation link Activation link Thank you Pankaj Tanwar Developer, ProjectShopie',
-                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the new activation link.Please find the below activation link<br><br><a href="http://localhost:8080/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
+                        html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the new activation link.Please find the below activation link<br><br><a href="https://projectshopie.herokuapp.com/activate/'+ user.temporarytoken+'">Activation link</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                     };
 
                     client.sendMail(email, function(err, info){
@@ -417,7 +417,7 @@ module.exports = function (router){
                                 to: user.email,
                                 subject: 'Forgot Password Request',
                                 text: 'Hello '+ user.name + 'You request for the forgot password.Please find the below link Reset password Thank you Pankaj Tanwar Developer, ProjectShopie',
-                                html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the forgot password. Please find the below link<br><br><a href="http://localhost:8080/forgotPassword/'+ user.temporarytoken+'">Reset password</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
+                                html: 'Hello <strong>'+ user.name + '</strong>,<br><br>You requested for the forgot password. Please find the below link<br><br><a href="https://projectshopie.herokuapp.com/forgotPassword/'+ user.temporarytoken+'">Reset password</a><br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
                             };
 
                             client.sendMail(email, function(err, info){

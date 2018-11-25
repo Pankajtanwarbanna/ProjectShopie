@@ -1,7 +1,7 @@
 var express  = require('express');
 var app = express();
 var morgan = require('morgan');             // middleware to log http requests
-var port = 8080 || process.env.PORT;
+var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var router = express.Router();
@@ -15,8 +15,11 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 // diff. front end and backend routes
 app.use('/api', apiRoutes);
+
+var conString = "mongodb://127.0.0.1/ProjectShopie";
+
 // connecting to mongo database
-mongoose.connect('mongodb://localhost:27017/ProjectShopie', { useNewUrlParser: true }, function (err) {
+mongoose.connect(conString, { useNewUrlParser: true }, function (err) {
     if(err) {
         console.log(err);
     } else {

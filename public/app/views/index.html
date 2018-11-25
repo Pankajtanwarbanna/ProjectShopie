@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Pankaj Tanwar">
+    <meta name="description" content="ProjectShopie is a platform to  Buy and Sell your side projects online!">
+    <meta name="Language" content="English">
+    <meta name="contact" content="projectshopie@gmail.com">
     <!-- Logo -->
     <link rel="shortcut icon" type="image/png" href="assets/images/logo/logo.png"/>
 
@@ -80,7 +84,10 @@
                                 can sell their product to our community of trusted buyers.
                             </h4>
                             <br>
-                            <a href="/explore">
+                            <a href="/explore" ng-show="main.isLoggedIn">
+                                <button class="btn btn-primary explore"> Explore</button>
+                            </a>
+                            <a href="/register" ng-show="!main.isLoggedIn">
                                 <button class="btn btn-primary explore"> Explore</button>
                             </a>
                         </div>
