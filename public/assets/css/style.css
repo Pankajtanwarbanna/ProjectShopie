@@ -147,19 +147,21 @@ p {
 @media screen and (min-width: 480px) {
 
 }
-/*
-ul {
-    width: 100%;
-    list-style: none;
-    margin: 0;
-    border-top: 1px solid #E1E4F0;
-    color: #8D92A3;
-    padding: 15px 25px 5px;
-    min-height : 50px;
-    box-shadow : 0 -4px 50px #fff;
+
+.text-block {
+    position: absolute;
+    bottom: 10px;
+    background-color: transparent;
+    color: white;
+    padding-left: 20px;
 }
-ul li{
-    display: inline;
-    margin: 10px;
+
+.contact-us {
+    padding : 15px 30px 15px 30px;
 }
-*/
+
+
+
+
+
+

@@ -1,5 +1,217 @@
-<div class="page-header">
+
+<style>
+
+    .card {
+        float: left;
+        padding: 0 1.7rem;
+        width: 100%;
+    }
+    .card .menu-content {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .card .menu-content::before, .card .menu-content::after {
+        content: '';
+        display: table;
+    }
+    .card .menu-content::after {
+        clear: both;
+    }
+    .card .menu-content li {
+        display: inline-block;
+    }
+    .card .menu-content a {
+        color: #fff;
+    }
+    .card .menu-content span {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        font-size: 10px;
+        font-weight: 700;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    .card .wrapper {
+        background-color: #fff;
+        min-height: 350px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    }
+    .card .wrapper:hover .data {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    .card .data {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        -webkit-transform: translateY(calc(70px + 1em));
+        transform: translateY(calc(70px + 1em));
+        transition: -webkit-transform 0.3s;
+    }
+    .card .data .content {
+        padding: 1em;
+        position: relative;
+        z-index: 1;
+    }
+    .card .author {
+        font-size: 12px;
+    }
+    .card .title {
+        margin-top: 10px;
+    }
+    .card .text {
+        height: 60px;
+        margin: 0;
+    }
+    .card input[type='checkbox'] {
+        display: none;
+    }
+    .card input[type='checkbox']:checked + .menu-content {
+        -webkit-transform: translateY(-60px);
+        transform: translateY(-60px);
+    }
+
+
+    .example-2 .wrapper {
+        background: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center/cover no-repeat;
+    }
+    .example-2 .wrapper:hover .menu-content span {
+        -webkit-transform: translate(-50%, -10px);
+        transform: translate(-50%, -10px);
+        opacity: 1;
+    }
+    .example-2 .header {
+        color: #fff;
+        padding: 1em;
+    }
+    .example-2 .header::before, .example-2 .header::after {
+        content: '';
+        display: table;
+    }
+    .example-2 .header::after {
+        clear: both;
+    }
+    .example-2 .header .date {
+        float: left;
+        font-size: 12px;
+    }
+    .example-2 .menu-content {
+        float: right;
+    }
+    .example-2 .menu-content li {
+        margin: 0 5px;
+        position: relative;
+    }
+    .example-2 .menu-content span {
+        transition: all 0.3s;
+        opacity: 0;
+    }
+    .example-2 .data {
+        color: #fff;
+        -webkit-transform: translateY(calc(70px + 4em));
+        transform: translateY(calc(70px + 4em));
+    }
+    .example-2 .title a {
+        color: #fff;
+    }
+    .example-2 .button {
+        display: block;
+        width: 100px;
+        margin: 2em auto 1em;
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        line-height: 1;
+        position: relative;
+        font-weight: 700;
+    }
+    .example-2 .button::after {
+        content: '\2192';
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        transition: all 0.3s;
+    }
+    .example-2 .button:hover::after {
+        -webkit-transform: translate(5px, -50%);
+        transform: translate(5px, -50%);
+        opacity: 1;
+    }
+
+</style>
+<div class="text-center">
     <h1>
-        Hello from contact
+        Get in touch
     </h1>
+    <h4 class="text-muted">Thank you for visiting out little slice of the internet. Cheers!</h4>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <br>
+        <form>
+            <label>Name </label>
+            <input class="form-control" type="text" placeholder="Enter your name">
+            <br><br>
+
+            <label>Email </label>
+            <input class="form-control" type="email" placeholder="Enter your email">
+            <br><br>
+
+            <label>Message </label>
+            <textarea rows="4" class="form-control" placeholder="Enter your message"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary contact-us">Send</button>
+        </form>
+    </div>
+    <div class="col-sm-6">
+        <div class="row" style="margin-top: 50px;">
+            <div class="example-2 card">
+                <div class="wrapper">
+                    <div class="header">
+                        <div class="date">
+                            <span class="day">Contact</span>
+                            <span class="month">Me</span>
+                        </div>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="#" class="fa fa-bookmark-o"></a>
+                            </li>
+                            <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+                            <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="data">
+                        <div class="content">
+                            <span class="author">Web Developer</span>
+                            <h1 class="title"><a href="#">Pankaj Tanwar </a></h1>
+                            <p class="text"> I’m a CS Undergrad, with love for JavaScript. I develop APIs with the Nodejs-Express-MongoDB stack. Would love to interact! </p>
+
+                            <div style="display: inline-block;">
+                                <div class="col-sm-4">
+                                    <a href="https://github.com/pankajtanwarbanna" class="button" target="_blank">Github</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a href="https://www.instagram.com/the2ndfloorguy/" class="button" target="_blank">Instagram</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a href="mailto:2016ucp1381@mnit.ac.in" class="button">Email</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
