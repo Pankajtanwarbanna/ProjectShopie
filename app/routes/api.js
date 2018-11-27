@@ -125,7 +125,7 @@ module.exports = function (router){
             to: 'pankaj.tanwar510@gmail.com',
             subject: 'Hey! I need to contact you.',
             text: 'Hello Pankaj! '+ req.body.name + ' just wanted to talk to you. Here is the message -' ,
-            html: 'Hello Pankaj <strong>'+ req.body.name + '</strong>,  just wanted to talk to you. Here is the message - <br><br>'+ req.body.message +'Mail ID - '+ req.body.email + '<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
+            html: 'Hello Pankaj <strong>'+ req.body.name + '</strong>,  just wanted to talk to you. Here is the message - <br>'+ req.body.message +'<br>Mail ID - '+ req.body.email + '<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
         };
 
         client.sendMail(email, function(err, info){
