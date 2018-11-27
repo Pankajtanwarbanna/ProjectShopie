@@ -116,6 +116,37 @@ module.exports = function (router){
         }
     });
 
+    // send contact me data to me
+    router.post('/sendInfo', function (req, res) {
+        //console.log(req.body);
+
+        var email = {
+            from: 'projectshopie@gmail.com',
+            to: 'pankaj.tanwar510@gmail.com',
+            subject: 'Hey! I need to contact you.',
+            text: 'Hello Pankaj! '+ req.body.name + ' just wanted to talk to you. Here is the message -' ,
+            html: 'Hello Pankaj <strong>'+ req.body.name + '</strong>,  just wanted to talk to you. Here is the message - <br><br>'+ req.body.message +'Mail ID - '+ req.body.email + '<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
+        };
+
+        client.sendMail(email, function(err, info){
+            if (err ){
+                console.log(err);
+                res.json({
+                    success : false,
+                    message : 'Internal server error. Please try again later!'
+                })
+            }
+            else {
+                console.log('Message sent: ' + info.response);
+                res.json({
+                    success : true,
+                    message : 'Link to reset your password has been sent to your registered email.'
+                });
+            }
+        });
+
+    });
+
     // User login API
     router.post('/authenticate', function (req,res) {
 
@@ -1027,7 +1058,7 @@ module.exports = function (router){
             })
 
         }
-    })
+    });
 
     return router;
 };

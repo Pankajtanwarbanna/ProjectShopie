@@ -24,7 +24,9 @@ var app = angular.module('userRoutes', ['ngRoute'])
 
             .when('/contact', {
                 templateUrl : '/app/views/pages/contact.html',
-                authenticated : false
+                authenticated : false,
+                controller : 'ContactCtrl',
+                controllerAs : 'contact'
             })
 
             .when('/services', {

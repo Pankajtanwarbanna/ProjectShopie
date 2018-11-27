@@ -86,5 +86,10 @@ angular.module('userServices',[])
         return $http.get('/api/getProjectInfo/'+ id);
     };
 
+    // contact page send info to me
+    userFactory.sendInfo  = function (sendData) {
+        return $http.post('/api/sendInfo', sendData);
+    };
+
     return userFactory;
 });

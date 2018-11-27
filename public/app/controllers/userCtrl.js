@@ -153,4 +153,35 @@ angular.module('userCtrl',['userServices'])
 
        }
    });
+})
+
+.controller('ContactCtrl', function (user, $timeout) {
+
+    var app = this;
+
+    app.sendInfo = function (sendData) {
+        //console.log(app.sendData);
+
+        user.sendInfo(app.sendData).then(function (data) {
+            console.log(data);
+            if(data.data.success) {
+                app.successMsg = data.data.message;
+                $timeout(function () {
+                    app.successMsg = '';
+                    app.sendData.name = '';
+                    app.sendData.email = '';
+                    app.sendData.message = '';
+                }, 1500);
+            } else {
+                app.errorMsg = data.data.message;
+                $timeout(function () {
+                    app.errorMsg = '';
+                    app.sendData.name = '';
+                    app.sendData.email = '';
+                    app.sendData.message = '';
+                }, 1500);
+            }
+
+        });
+    }
 });

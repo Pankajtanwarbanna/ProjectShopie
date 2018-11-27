@@ -77,7 +77,7 @@
 
 
     .example-2 .wrapper {
-        background: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center/cover no-repeat;
+        background: url('assets/images/dev3.jpg') center/cover no-repeat ;
     }
     .example-2 .wrapper:hover .menu-content span {
         -webkit-transform: translate(-50%, -10px);
@@ -157,17 +157,28 @@
 <div class="row">
     <div class="col-sm-6">
         <br>
-        <form>
+        <div class="row show-hide-message">
+            <div class="alert alert-success" ng-show="contact.successMsg">
+                <strong> Success! </strong> {{ contact.successMsg  }}
+            </div>
+        </div>
+
+        <div class="row show-hide-message">
+            <div class="alert alert-danger" ng-show="contact.errorMsg">
+                <strong> Oops! </strong> {{ contact.errorMsg  }}
+            </div>
+        </div>
+        <form ng-submit="contact.sendInfo(sendData);">
             <label>Name </label>
-            <input class="form-control" type="text" placeholder="Enter your name">
+            <input class="form-control" type="text" placeholder="Enter your name" ng-model="contact.sendData.name" required>
             <br><br>
 
             <label>Email </label>
-            <input class="form-control" type="email" placeholder="Enter your email">
+            <input class="form-control" type="email" placeholder="Enter your email" ng-model="contact.sendData.email" required>
             <br><br>
 
             <label>Message </label>
-            <textarea rows="4" class="form-control" placeholder="Enter your message"></textarea>
+            <textarea rows="4" class="form-control" placeholder="Enter your message" ng-model="contact.sendData.message" required></textarea>
             <br>
             <button type="submit" class="btn btn-primary contact-us">Send</button>
         </form>
@@ -181,13 +192,6 @@
                             <span class="day">Contact</span>
                             <span class="month">Me</span>
                         </div>
-                        <ul class="menu-content">
-                            <li>
-                                <a href="#" class="fa fa-bookmark-o"></a>
-                            </li>
-                            <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
-                            <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
-                        </ul>
                     </div>
                     <div class="data">
                         <div class="content">
@@ -212,6 +216,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
