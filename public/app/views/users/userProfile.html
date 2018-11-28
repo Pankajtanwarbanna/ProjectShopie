@@ -1,5 +1,12 @@
-<div class="page-header text-center">
+<div class="page-header text-center" ng-show="profile.pageExist">
     <h1>
         We are working on user profile page!
     </h1>
+</div>
+
+
+<div class="row show-hide-message">
+    <div class="alert alert-danger" ng-show="profile.errorMsg">
+        <strong> Oops! </strong> {{ profile.errorMsg  }}
+    </div>
 </div>

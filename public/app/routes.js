@@ -19,7 +19,9 @@ var app = angular.module('userRoutes', ['ngRoute'])
 
             .when('/users/:username', {
                 templateUrl : '/app/views/users/userProfile.html',
-                authenticated : true
+                authenticated : true,
+                controller : 'profileCtrl',
+                controllerAs : 'profile'
             })
 
             .when('/contact', {

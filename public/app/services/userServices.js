@@ -91,5 +91,10 @@ angular.module('userServices',[])
         return $http.post('/api/sendInfo', sendData);
     };
 
+    // verify user profile page
+    userFactory.checkUser = function (username) {
+        return $http.post('/api/checkUser/'+ username);
+    };
+
     return userFactory;
 });

@@ -1060,6 +1060,37 @@ module.exports = function (router){
         }
     });
 
+    // route to check user profile existence
+    router.post('/checkUser/:username', function (req, res) {
+        if(!req.decoded.username) {
+            res.json({
+                success : false,
+                message : 'You are not authorize to view this page. Please login.'
+            });
+        } else {
+            User.findOne({ username : req.params.username }, function (err, user) {
+                if(err) {
+                    res.json({
+                        success : false,
+                        message : 'Internal server error.'
+                    });
+                }
+
+                if(!user) {
+                    res.json({
+                        success : false,
+                        message : 'Username doesnot exist.'
+                    });
+                } else {
+                    res.json({
+                        success : true,
+                        message : 'User profile page exists.'
+                    });
+                }
+            })
+        }
+    });
+
     return router;
 };
 

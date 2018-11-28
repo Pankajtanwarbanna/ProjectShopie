@@ -31,7 +31,7 @@ app.get('*', function (req,res) {
     res.sendFile(__dirname + '/public/app/views/index.html');
 });
 
-// server listening on port 8080
+// server listening on port
 app.listen(port, function () {
-    console.log('Server running on port 8080');
+    console.log('Server running on port ' +port);
 });

@@ -184,4 +184,26 @@ angular.module('userCtrl',['userServices'])
 
         });
     }
+})
+
+.controller('profileCtrl', function (user,$routeParams, $timeout,$location) {
+
+    var app = this;
+
+    app.pageExist = false;
+
+    //console.log($routeParams.username);
+    user.checkUser($routeParams.username).then(function (data) {
+        //console.log(data);
+        if(data.data.success) {
+            app.successMsg = data.data.message;
+            app.pageExist = true;
+        } else {
+            app.errorMsg = data.data.message + ' Redirecting to home page...';
+            app.pageExist = false;
+            $timeout(function () {
+                $location.path('/');
+            }, 2000);
+        }
+    });
 });
