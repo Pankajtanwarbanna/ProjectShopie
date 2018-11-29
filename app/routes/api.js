@@ -13,8 +13,8 @@ module.exports = function (router){
     var client = nodemailer.createTransport({
         service : 'gmail',
         auth: {
-            user: 'EMAIL',
-            pass: 'PASSWORD'
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
         }
     });
 
@@ -140,7 +140,7 @@ module.exports = function (router){
                 console.log('Message sent: ' + info.response);
                 res.json({
                     success : true,
-                    message : 'Link to reset your password has been sent to your registered email.'
+                    message : 'Your message has been successfully sent.'
                 });
             }
         });

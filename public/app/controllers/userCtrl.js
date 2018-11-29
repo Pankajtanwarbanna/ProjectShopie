@@ -162,13 +162,20 @@ angular.module('userCtrl',['userServices'])
 
     var app = this;
 
+    app.Contactload = true;
+
+    console.log(app.Contactload);
+
     app.sendInfo = function (sendData) {
         //console.log(app.sendData);
+
+        app.Contactload = false;
 
         user.sendInfo(app.sendData).then(function (data) {
             //console.log(data);
             if(data.data.success) {
                 app.successMsg = data.data.message;
+                app.Contactload = true;
                 $timeout(function () {
                     app.successMsg = '';
                     app.sendData.name = '';
@@ -177,6 +184,7 @@ angular.module('userCtrl',['userServices'])
                 }, 1500);
             } else {
                 app.errorMsg = data.data.message;
+                app.Contactload = true;
                 $timeout(function () {
                     app.errorMsg = '';
                     app.sendData.name = '';

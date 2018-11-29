@@ -157,17 +157,30 @@
 <div class="row">
     <div class="col-sm-6">
         <br>
-        <div class="row show-hide-message">
-            <div class="alert alert-success" ng-show="contact.successMsg">
-                <strong> Success! </strong> {{ contact.successMsg  }}
+
+        <!-- preloader div -->
+        <div ng-show="!contact.Contactload">
+            <div class="row show-hide-message">
+                <div class="alert alert-success">
+                    <strong> Success! </strong> Sending your message. Please wait...
+                </div>
             </div>
         </div>
 
-        <div class="row show-hide-message">
-            <div class="alert alert-danger" ng-show="contact.errorMsg">
-                <strong> Oops! </strong> {{ contact.errorMsg  }}
+        <div ng-show="contact.Contactload">
+            <div class="row show-hide-message">
+                <div class="alert alert-success" ng-show="contact.successMsg">
+                    <strong> Success! </strong> {{ contact.successMsg  }}
+                </div>
+            </div>
+
+            <div class="row show-hide-message">
+                <div class="alert alert-danger" ng-show="contact.errorMsg">
+                    <strong> Oops! </strong> {{ contact.errorMsg  }}
+                </div>
             </div>
         </div>
+
         <form ng-submit="contact.sendInfo(sendData);">
             <label>Name </label>
             <input class="form-control" type="text" placeholder="Enter your name" ng-model="contact.sendData.name" required>
