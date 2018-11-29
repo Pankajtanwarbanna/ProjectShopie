@@ -1,6 +1,9 @@
 * {
     font-family: Raleway, sans-serif;
 }
+body {
+    height: 100%;
+}
 .navbar-inverse {
     padding-top: 10px;
     padding-bottom: 5px;
@@ -158,6 +161,32 @@ p {
 
 .contact-us {
     padding : 15px 30px 15px 30px;
+}
+.loader-div {
+    margin: 0 auto;
+    width: 100px;
+    margin-top: 15%;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3e474f;
+    width: 120px;
+    height: 120px;
+    align-items: center;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 

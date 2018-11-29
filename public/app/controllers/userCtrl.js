@@ -37,7 +37,7 @@ angular.module('userCtrl',['userServices'])
     user.getUsers().then(function (data) {
 
         if(data.data.success) {
-            console.log(app.users);
+            //console.log(app.users);
             app.users = data.data.users;
         } else {
             app.errorMsg = data.data.message;
@@ -86,7 +86,7 @@ angular.module('userCtrl',['userServices'])
     };
 
     app.submitProject = function () {
-        console.log('Project Posted Successfully.')
+        //console.log('Project Posted Successfully.')
         var projectData = {};
 
         projectData.projectname = app.projectname;
@@ -103,7 +103,7 @@ angular.module('userCtrl',['userServices'])
         projectData.projectprice = app.projectprice;
 
         user.submitProject(projectData).then(function (data) {
-            console.log(data);
+            //console.log(data);
             if(data.data.success) {
                 $location.path('/projectposted')
             } else {
@@ -120,21 +120,24 @@ angular.module('userCtrl',['userServices'])
 
     var app = this;
 
+    app.load = false;
+
     user.getProjects().then(function (data) {
-        console.log(data);
+        //console.log(data);
         if(data.data.success) {
             app.projects = data.data.projects;
+            app.load = true;
         }
     });
 })
 
 .controller('projectCtrl', function (user, $routeParams) {
-   console.log($routeParams.id);
+   //console.log($routeParams.id);
 
    var app = this;
 
    user.getProjectInfo($routeParams.id).then(function (data) {
-       console.log(data);
+       //console.log(data);
        if(data.data.success) {
            app.projectname = data.data.project.projectname;
            app.description = data.data.project.description;
@@ -163,7 +166,7 @@ angular.module('userCtrl',['userServices'])
         //console.log(app.sendData);
 
         user.sendInfo(app.sendData).then(function (data) {
-            console.log(data);
+            //console.log(data);
             if(data.data.success) {
                 app.successMsg = data.data.message;
                 $timeout(function () {
