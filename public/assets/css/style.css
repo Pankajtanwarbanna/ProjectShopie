@@ -188,7 +188,12 @@ p {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
+.project-line {
+    height: 60px;
+}
+.col-md-4 {
+    height: 250px;
+}
 
 
 

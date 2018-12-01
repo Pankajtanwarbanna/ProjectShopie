@@ -164,7 +164,7 @@ angular.module('userCtrl',['userServices'])
 
     app.Contactload = true;
 
-    console.log(app.Contactload);
+    //console.log(app.Contactload);
 
     app.sendInfo = function (sendData) {
         //console.log(app.sendData);
