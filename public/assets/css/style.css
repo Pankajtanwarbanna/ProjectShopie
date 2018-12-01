@@ -147,8 +147,12 @@ p {
 .bottom-footer {
     margin-bottom: 12em;
 }
-@media screen and (min-width: 480px) {
-
+@media only screen and (max-width: 600px) {
+    .box {
+        top : -10px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
 }
 
 .text-block {
