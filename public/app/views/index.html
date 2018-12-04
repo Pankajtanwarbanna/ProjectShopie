@@ -65,7 +65,8 @@
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="/contact" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Contact Us </a></li>
-                                <li><a href="/sell-project" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Sell Your Project </a></li>
+                                <li><a href="/explore" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Explore </a></li>
+                                <li><a href="/sell-project" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Sell my Project </a></li>
                                 <li><a href="/management" ng-show="main.isLoggedIn && main.authorized" style="color: white !important;font-weight:bold;"> Management </a></li>
                                 <li><a href="/register" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Join Us </a></li>
                                 <li><a href="/users/{{main.username}}" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Hello {{main.name }}</a></li>
