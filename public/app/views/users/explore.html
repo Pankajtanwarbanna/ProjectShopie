@@ -14,19 +14,21 @@
     <br>
     <div class="row">
         <div class="col-sm-2">
-            <p class="text-muted"> Filter by </p>
+            <p class="text-muted text-left"> Filter by </p>
         </div>
         <div class="col-sm-3">
-            <input class="form-control" type="text" placeholder="Minimum Price">
+            <input class="form-control" type="text" ng-model="explore.price" placeholder="Minimum Price">
         </div>
+        <!--
         <div class="col-sm-3">
             <input class="form-control" type="text" placeholder="Minimum Revenue">
         </div>
+        -->
     </div>
     <div class="row" style="margin-top: 4em;margin-bottom: 4em;">
         <div class="container">
 
-            <div class="col-md-4 box" ng-repeat="project in explore.projects" style="margin-top: 10px;margin-bottom: 1em;">
+            <div class="col-md-4 box" ng-repeat="project in explore.projects" ng-if="project.projectprice > explore.price" style="margin-top: 10px;margin-bottom: 1em;">
 
                 <h5 style="color: green;"><span class="dot"></span> &nbsp;Still On sale<b style="float: right;" class="text-muted">2 Weeks ago</b></h5>
                 <a href="/project/{{ project._id }}" style="color: black !important;" class="topic"><h3> {{ project.projectname }}</h3></a>

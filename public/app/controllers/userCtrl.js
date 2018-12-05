@@ -122,6 +122,8 @@ angular.module('userCtrl',['userServices'])
 
     app.load = false;
 
+    app.price = '';
+
     user.getProjects().then(function (data) {
         //console.log(data);
         if(data.data.success) {
