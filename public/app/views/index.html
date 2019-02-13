@@ -65,11 +65,11 @@
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="/contact" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Contact Us </a></li>
-                                <li><a href="/explore" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Explore </a></li>
-                                <li><a href="/sell-project" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Sell my Project </a></li>
-                                <li><a href="/management" ng-show="main.isLoggedIn && main.authorized" style="color: white !important;font-weight:bold;"> Management </a></li>
-                                <li><a href="/register" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Join Us </a></li>
-                                <li><a href="/users/{{main.username}}" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Hello {{main.name }}</a></li>
+                                <li><a href="/sell-project" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Post Project </a></li>
+                                <li><a href="/explore" style="color: white !important;font-weight:bold;"> Explore Projects </a></li>
+                                <li><a href="/admin-login" ng-show="!main.isLoggedIn" style="color: white !important;font-weight:bold;"> Admin Login </a></li>
+                                <li><a href="/project-management" ng-show="main.isLoggedIn && main.authorized" style="color: white !important;font-weight:bold;"> Management </a></li>
+                                <li><a href="#" ng-show="main.isLoggedIn" style="color: white !important;font-weight:bold;"> Hello {{main.name }}</a></li>
                                 <li><a href="#" ng-show="main.isLoggedIn" ng-click="main.logout();" style="color: white !important;font-weight:bold;"> Logout </a></li>
                             </ul>
                         </div>
@@ -85,12 +85,14 @@
                                 can sell their product to our community of trusted buyers.
                             </h4>
                             <br>
-                            <a href="/explore" ng-show="main.isLoggedIn">
+                            <a href="/explore">
                                 <button class="btn btn-primary explore"> Explore</button>
                             </a>
+                            <!--
                             <a href="/register" ng-show="!main.isLoggedIn">
                                 <button class="btn btn-primary explore"> Explore</button>
                             </a>
+                            -->
                         </div>
                         <div class="col-sm-6" style="margin-top: 15em">
                             <img src="assets/images/winning.svg" style="width: 100%;"/>

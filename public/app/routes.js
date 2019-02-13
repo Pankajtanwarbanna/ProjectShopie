@@ -3,6 +3,7 @@ var app = angular.module('userRoutes', ['ngRoute'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
 
+            /*
             .when('/register', {
                 templateUrl : '/app/views/users/register.html',
                 controller : 'regCtrl',
@@ -22,6 +23,19 @@ var app = angular.module('userRoutes', ['ngRoute'])
                 authenticated : true,
                 controller : 'profileCtrl',
                 controllerAs : 'profile'
+            })
+            */
+
+            .when('/logout', {
+                templateUrl : '/app/views/users/logout.html',
+                authenticated : false
+            })
+
+            .when('/admin-login', {
+                templateUrl : 'app/views/users/admin-login.html',
+                authenticated : false,
+                controller : 'regCtrl',
+                controllerAs : 'register'
             })
 
             .when('/contact', {
@@ -72,6 +86,14 @@ var app = angular.module('userRoutes', ['ngRoute'])
                 permission : 'admin'
             })
 
+            .when('/project-management', {
+                templateUrl : 'app/views/admin/project-management.html',
+                authenticated : true,
+                controller : 'projectManagementCtrl',
+                controllerAs : 'projectmanagement',
+                permission : 'admin'
+            })
+
             .when('/edit/:id', {
                 templateUrl : 'app/views/admin/edit.html',
                 authenticated : true,
@@ -94,14 +116,12 @@ var app = angular.module('userRoutes', ['ngRoute'])
 
             .when('/explore' , {
                 templateUrl : 'app/views/users/explore.html',
-                authenticated : true,
                 controller : 'exploreCtrl',
                 controllerAs : 'explore'
             })
 
             .when('/project/:id', {
                 templateUrl : 'app/views/users/project.html',
-                authenticated : true,
                 controller : 'projectCtrl',
                 controllerAs : 'project'
             })

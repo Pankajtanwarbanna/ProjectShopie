@@ -96,5 +96,10 @@ angular.module('userServices',[])
         return $http.post('/api/checkUser/'+ username);
     };
 
+    // delete project by admin
+    userFactory.deleteProject = function (id) {
+        return $http.post('/api/deleteProject/'+ id);
+    };
+
     return userFactory;
 });

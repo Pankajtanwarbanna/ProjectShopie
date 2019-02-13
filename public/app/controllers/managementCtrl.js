@@ -65,6 +65,38 @@ angular.module('managementController', ['userServices'])
     }
 })
 
+// Project Management Controller
+.controller('projectManagementCtrl', function (user) {
+    //console.log('Testing Project Management Ctrl');
+    var app = this;
+
+    app.deleted = false;
+    app.load = true;
+
+    function getAllProjects() {
+        user.getProjects().then(function (data) {
+            //console.log(data);
+            if(data.data.success) {
+                app.projects = data.data.projects;
+                app.load = false;
+            }
+        });
+    }
+
+    getAllProjects();
+
+    // delete project
+    app.deleteProject = function (id) {
+        //console.log(app.id);
+        //console.log(id);
+        user.deleteProject(id).then(function (data) {
+            //console.log(data);
+            app.deleted = true;
+            getAllProjects();
+        });
+    }
+})
+
 .controller('editCtrl', function ($scope,user,$routeParams,$timeout) {
 
     var app = this;

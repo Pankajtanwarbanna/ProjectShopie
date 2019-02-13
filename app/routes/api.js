@@ -13,8 +13,8 @@ module.exports = function (router){
     var client = nodemailer.createTransport({
         service : 'gmail',
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
+            user: 'EMAIL',
+            pass: 'PASSWORD'
         }
     });
 
@@ -116,16 +116,134 @@ module.exports = function (router){
         }
     });
 
+    // router to get all projects
+    router.get('/getProjects', function (req, res) {
+
+        // postedbyusername : req.decoded.username
+        Project.find({   }, function (err, projects) {
+            if(err) {
+                res.json({
+                    success : false,
+                    message : 'Error while fetching data from database.'
+                });
+            } else if (!projects) {
+                res.json({
+                    success : false,
+                    message : 'Projects not projects'
+                });
+            } else {
+                res.json({
+                    success : true,
+                    projects : projects
+                })
+            }
+        });
+
+    });
+
+    // submit project
+    router.post('/submitProject', function (req,res) {
+        console.log(req.body);
+        if(!req.body) {
+            res.json({
+                success : false,
+                message : 'Entries are missing'
+            });
+        } else {
+            var project = new Project();
+
+            project.postedbyname = req.body.name;
+            project.postedbyusername = req.body.name;
+            project.email = req.body.email;
+            project.contact = req.body.contact;
+            project.projectname = req.body.projectname;
+            project.demourl = req.body.demourl;
+            project.githuburl = req.body.githuburl;
+            project.technology = req.body.technology;
+            project.description = req.body.description;
+            project.projectline = req.body.projectline;
+            project.subscriber = req.body.subscriber;
+            project.revenue = req.body.revenue;
+            project.projectprice = req.body.projectprice;
+
+            project.save(function (err) {
+                if(err) {
+                    console.log(err);
+                    res.json({
+                        success : false,
+                        message : 'Error while posting project.'
+                    });
+                } else {
+                    res.json({
+                        success: true,
+                        message : 'Project successfully posted.'
+                    })
+                }
+            })
+
+        }
+    });
+
+
+
+    // route to get project details
+    router.get('/getProjectInfo/:id', function (req, res) {
+
+
+        Project.findOne({ _id : req.params.id }, function (err, project) {
+            if(err) {
+                res.json({
+                    success : false,
+                    message : 'Error while fetching data from database.'
+                });
+            } else if (!project) {
+                res.json({
+                    success : false,
+                    message : 'Projects not projects'
+                });
+            } else {
+                res.json({
+                    success : true,
+                    project : project
+                })
+            }
+        })
+    });
+
+    // route to check user profile existence
+    router.post('/checkUser/:username', function (req, res) {
+        User.findOne({ username : req.params.username }, function (err, user) {
+            if(err) {
+                res.json({
+                    success : false,
+                    message : 'Internal server error.'
+                });
+            }
+
+            if(!user) {
+                res.json({
+                    success : false,
+                    message : 'Username doesnot exist.'
+                });
+            } else {
+                res.json({
+                    success : true,
+                    message : 'User profile page exists.'
+                });
+            }
+        })
+    });
+
     // send contact me data to me
     router.post('/sendInfo', function (req, res) {
         //console.log(req.body);
 
         var email = {
             from: 'projectshopie@gmail.com',
-            to: 'pankaj.tanwar510@gmail.com',
+            to: '2016ucp1381@mnit.ac.in',
             subject: 'Hey! I need to contact you.',
             text: 'Hello Pankaj! '+ req.body.name + ' just wanted to talk to you. Here is the message -' ,
-            html: 'Hello Pankaj <strong>'+ req.body.name + '</strong>,  just wanted to talk to you. Here is the message - <br>'+ req.body.message +'<br>Mail ID - '+ req.body.email + '<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
+            html: 'Hello Pankaj<br><br> <strong>'+ req.body.name + '</strong>,  just wanted to talk to you. <br><br>Here is the message - <br>'+ req.body.message +'<br><br>Mail ID - '+ req.body.email + '<br><br>Thank you<br>Pankaj Tanwar<br>Developer, ProjectShopie'
         };
 
         client.sendMail(email, function(err, info){
@@ -387,9 +505,16 @@ module.exports = function (router){
                     client.sendMail(email, function(err, info){
                         if (err ){
                             console.log(err);
+                            res.json({
+                                success : false,
+                                message : 'Internal server error. Please try again later!'
+                            })
                         }
                         else {
-                            console.log('Message sent: ' + info.response);
+                            res.json({
+                                success : true,
+                                message : 'Username has been successfully sent to your email.'
+                            });
                         }
                     });
 
@@ -454,15 +579,16 @@ module.exports = function (router){
                             client.sendMail(email, function(err, info){
                                 if (err ){
                                     console.log(err);
-                                }
+                                    res.json({
+                                        success : false,
+                                        message : 'Internal server error. Please try again later!'
+                                    })                                 }
                                 else {
-                                    console.log('Message sent: ' + info.response);
+                                    res.json({
+                                        success : true,
+                                        message : 'Link to reset your password has been sent to your registered email.'
+                                    });
                                 }
-                            });
-
-                            res.json({
-                                success : true,
-                                message : 'Link to reset your password has been sent to your registered email.'
                             });
 
                         }
@@ -954,142 +1080,38 @@ module.exports = function (router){
         });
     });
 
-    // submit project
-    router.post('/submitProject', function (req,res) {
-        console.log(req.body);
-        if(!req.body) {
-            res.json({
-                success : false,
-                message : 'Entries are missing'
-            });
-        } else {
-            var project = new Project();
+    // delete a project form database
+    router.post('/deleteProject/:id', function (req,res) {
 
-            project.postedbyname = req.body.name;
-            project.postedbyusername = req.decoded.username;
-            project.email = req.body.email;
-            project.contact = req.body.contact;
-            project.projectname = req.body.projectname;
-            project.demourl = req.body.demourl;
-            project.githuburl = req.body.githuburl;
-            project.technology = req.body.technology;
-            project.description = req.body.description;
-            project.projectline = req.body.projectline;
-            project.subscriber = req.body.subscriber;
-            project.revenue = req.body.revenue;
-            project.projectprice = req.body.projectprice;
+        console.log(req.params.id);
 
-            project.save(function (err) {
-                if(err) {
-                    console.log(err);
-                    res.json({
-                        success : false,
-                        message : 'Error while posting project.'
-                    });
-                } else {
-                    res.json({
-                        success: true,
-                        message : 'Project successfully posted.'
-                    })
-                }
-            })
+        var deleteProject = req.params.id;
 
-        }
-    });
+        Project.findOne({ _id : deleteProject }, function (err,mainProject) {
 
-    // router to get all projects
-    router.get('/getProjects', function (req, res) {
-        if(!req.decoded.username) {
-            res.json({
-                success : false,
-                message : 'User not found.'
-            });
-        } else {
-            // postedbyusername : req.decoded.username
-            Project.find({   }, function (err, projects) {
-                if(err) {
-                    res.json({
-                        success : false,
-                        message : 'Error while fetching data from database.'
-                    });
-                } else if (!projects) {
-                    res.json({
-                        success : false,
-                        message : 'Projects not projects'
-                    });
-                } else {
+            if(err) throw err;
+
+            if(!mainProject) {
+                res.json({
+                    success : false,
+                    message : 'Project not found.'
+                });
+            } else {
+                console.log(mainProject);
+
+                Project.findOneAndRemove({ _id : deleteProject }, function (err,user) {
+                    if(err) throw err;
+
                     res.json({
                         success : true,
-                        projects : projects
-                    })
-                }
-            });
+                    });
+                });
 
-        }
+            }
+        });
     });
 
-    // route to get project details
-    router.get('/getProjectInfo/:id', function (req, res) {
-        //console.log(req.params.id);
-        if(!req.decoded.username) {
-            res.json({
-                success : false,
-                message : 'User not found.'
-            });
-        } else {
 
-            Project.findOne({ _id : req.params.id }, function (err, project) {
-                if(err) {
-                    res.json({
-                        success : false,
-                        message : 'Error while fetching data from database.'
-                    });
-                } else if (!project) {
-                    res.json({
-                        success : false,
-                        message : 'Projects not projects'
-                    });
-                } else {
-                    res.json({
-                        success : true,
-                        project : project
-                    })
-                }
-            })
-
-        }
-    });
-
-    // route to check user profile existence
-    router.post('/checkUser/:username', function (req, res) {
-        if(!req.decoded.username) {
-            res.json({
-                success : false,
-                message : 'You are not authorize to view this page. Please login.'
-            });
-        } else {
-            User.findOne({ username : req.params.username }, function (err, user) {
-                if(err) {
-                    res.json({
-                        success : false,
-                        message : 'Internal server error.'
-                    });
-                }
-
-                if(!user) {
-                    res.json({
-                        success : false,
-                        message : 'Username doesnot exist.'
-                    });
-                } else {
-                    res.json({
-                        success : true,
-                        message : 'User profile page exists.'
-                    });
-                }
-            })
-        }
-    });
 
     return router;
 };

@@ -17,7 +17,6 @@ app.use(express.static(__dirname + '/public'));
 app.use('/api', apiRoutes);
 
 var conString = "mongodb://127.0.0.1/ProjectShopie";
-
 // connecting to mongo database
 mongoose.connect(conString, { useNewUrlParser: true }, function (err) {
     if(err) {
